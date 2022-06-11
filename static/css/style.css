@@ -33,24 +33,21 @@ nav button{
 }
 
 nav .btn{
-  background-color: white;
-  color: black;
-  font-family: 'Inter', sans-serif;
-  font-weight: bolder;
-}
-
-nav .btn:hover{
   background-color: black;
   color: white;
+  font-family: 'Inter', sans-serif;
+  
 }
 
 form .submit{
   background-color: white;
   color: black;
   font-family: 'Inter', sans-serif;
-  font-weight: bolder;
-  margin-bottom: 50px;
-  margin-left: 10px;
+  border-radius: 0%;
+  margin-left: -4px;
+  height: 40px;
+  margin-bottom: 33px;
+  padding-bottom: 35px;
 }
 
 form .submit:hover{
@@ -74,11 +71,32 @@ form .submit:hover{
   background-size: contain;
 }
 
+.cover-2{
+  height: 500px;
+  background-image: url("../images/blur_edges.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  
+}
+
 textarea{
-  width: 50%;
+  width: 20%;
+  height: 43px;
   font-size: 100px;
   color: #fff;
+  background-color: rgba(0, 0, 0, .5) ;
+}
 
+#bar{
+  margin-left: 60%;
+
+}
+#title{
+  font-family: 'Shrikhand', cursive;
+  margin-left: 50%;
+  background-color: transparent;
+  text-align: center;
+  padding-top: 150px;
 }
 /*-----------------------------------------ABOUT SECTION*/
 .about{
@@ -89,8 +107,6 @@ textarea{
 .about p{
   font-family: 'Inter', sans-serif;
   text-align: center;
-  width: 50%;
-  margin-left: 200px;
 
 }
 h2{
