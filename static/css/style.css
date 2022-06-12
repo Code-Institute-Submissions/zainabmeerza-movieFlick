@@ -370,3 +370,86 @@ h3{
 .row{
   justify-content: center;
 }
+
+#movie-search{
+  font-family: 'Inter', sans-serif;
+  padding-bottom: 20px;
+}
+
+/*---------------------------SEARCH RESULTS*/
+.row .card{
+  --bs-card-bg: black;
+  color: #fff;
+}
+
+.movie-row{
+  justify-content: left;
+  background-color: white;
+  border-radius: 1%;
+}
+
+.row .card img{
+ height: 600px;
+ width:auto;
+} 
+
+.no-gutters{
+  width: fit-content;
+}
+
+.container .col-md-4{
+  
+  width: fit-content;
+  padding: 0px;
+}
+
+.g-0 .col-6 {
+  padding-left: 20px;
+}
+
+
+.collection .collection-item.avatar {
+  min-height: 84px;
+  padding-left: 40px;
+  position: relative;
+}
+
+.collection {
+  margin: 0.5rem 0 1rem 0;
+ 
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+  padding-left: 0;
+    list-style-type: none;
+}
+
+.circle {
+    border-radius: 50%;
+}
+
+.collection .collection-item.avatar:not(.circle-clipper)>.circle, .collection .collection-item.avatar :not(.circle-clipper)>.circle {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  left: 15px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.collection p, .collection span{
+  margin-left: 50px;
+}
+
+#rt{
+  width: 65px;
+  height: 50px;
+  margin-left: -6px;
+}
+#details{
+  line-height: 7px;
+}
+.collection{
+  padding-top: 14px;
+}
