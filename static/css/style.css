@@ -16,6 +16,7 @@ footer li{
   list-style: none;
 }
 
+/*-----------------------------------------NAVIGATION BAR/HEADER*/
 nav img{
   height: 200px;
   padding-left: 20px;
@@ -39,6 +40,7 @@ nav .btn{
   
 }
 
+/*-----------------------------------------COVER IMAGE*/
 form .submit{
   background-color: white;
   color: black;
@@ -54,15 +56,6 @@ form .submit:hover{
   background-color: black;
   color: white;
 }
-#four{
-  background-color: transparent;
-  color: black;
-  font-size: 26px;
-}
-#four:hover{
-  
-  color: white;
-}
 
 .cover{
   height: 900px;
@@ -71,12 +64,16 @@ form .submit:hover{
   background-size: contain;
 }
 
-.cover-2{
-  height: 500px;
-  background-image: url("../images/blur_edges.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  
+#bar{
+  margin-left: 60%;
+}
+
+#title{
+  font-family: 'Shrikhand', cursive;
+  margin-left: 50%;
+  background-color: transparent;
+  text-align: center;
+  padding-top: 200px;
 }
 
 textarea{
@@ -87,17 +84,15 @@ textarea{
   background-color: rgba(0, 0, 0, .5) ;
 }
 
-#bar{
-  margin-left: 60%;
+/*----------------------------------------- ROW OF IMAGES*/
+.cover-2{
+  height: 500px;
+  background-image: url("../images/blur_edges.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  
+}
 
-}
-#title{
-  font-family: 'Shrikhand', cursive;
-  margin-left: 50%;
-  background-color: transparent;
-  text-align: center;
-  padding-top: 150px;
-}
 /*-----------------------------------------ABOUT SECTION*/
 .about{
   padding: 50px;
