@@ -11,6 +11,9 @@ font-family: 'Shrikhand', cursive;
 .container {
   width: 100%;
 }
+.container-fluid{
+  background-color: black;
+}
 
 footer li{
   list-style: none;
@@ -341,4 +344,29 @@ footer a{
 h3{
   font-family: 'Shrikhand', cursive;
 
+}
+
+/*---------------------------SEARCH RESULTS*/
+
+#load{
+  background-color: black;
+  color: white;
+  border-color: #fff;
+  font-family: 'Inter', sans-serif;
+  border-radius: 0%;
+  height: 40px;
+  margin-top: 33px;
+  margin-bottom: 33px;
+  padding-bottom: 35px;
+  width: 20%;
+  align-items: center;
+}
+
+#load:hover{
+  background-color: white;
+  color: black;
+}
+
+.row{
+  justify-content: center;
 }
