@@ -404,7 +404,7 @@ h3{
 }
 
 .g-0 .col-6 {
-  padding-left: 20px;
+  padding-left: 30px;
 }
 
 
@@ -505,4 +505,119 @@ i .material-symbols-outlined{
 .line{
   border-top-color: #bbb;
   border-width: 2px;
+}
+
+
+/*---------------------REVIEW PAGE*/
+#reviewed_by{
+  background-color: white;
+  color: black;
+}
+
+.rate-box{
+  padding-top: 20px;
+  width: 80%;
+}
+.inner-row img{
+    border-radius: 50%;
+    width: 150px;
+    height: auto;
+}
+.col div{
+  width: fit-content;
+}
+
+.col-4 img{
+  width: 140px;
+  margin: 15px;
+}
+
+.user{
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+ 
+}
+
+.user p{
+  margin-top: -15px;
+  background-color: transparent;
+  color: black;
+  margin-left: -40px;
+}
+
+.user b{
+  background-color: transparent;
+  color: black;
+}
+
+.col-6 .longer div{
+ background-color: #29aafe;
+}
+
+.rated-text h3{
+  font-family: 'Inter', sans-serif;
+  
+  background-color: transparent;
+  color: black;
+}
+
+
+.container .rate-box div{
+  background-color: white;
+  color: black;
+  height: 220px;
+
+}
+
+.rounded{
+  --bs-border-radius: 1.5rem;
+  width: 86%;
+}
+
+.rounded:hover{
+  filter: brightness(98%);
+}
+
+.username p{
+  margin-left: 0px;
+}
+
+#rate_icon{
+  font-size: 30px;
+  padding-left: 10px;
+  
+}
+
+.thumbs a{
+  float: left;
+  text-decoration: none;
+  
+}
+
+.thumbs a:hover{
+  color: #bbb;
+  
+}
+.card div{
+  background-color: black;
+}
+
+.plot{
+  text-align: justify;
+}
+
+.trash:hover{
+  color: red;
+}
+
+
+.comment-box textarea{
+  width: 90%;
+  height: 44px;
+  margin-left: 2px;
+  border: hidden;
+}
+
+.comment-box textarea{
+  font-size: 25px;
 }
