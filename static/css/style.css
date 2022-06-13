@@ -348,7 +348,7 @@ h3{
 
 /*---------------------------SEARCH RESULTS*/
 
-#load{
+.load{
   background-color: black;
   color: white;
   border-color: #fff;
@@ -357,12 +357,12 @@ h3{
   height: 40px;
   margin-top: 33px;
   margin-bottom: 33px;
-  padding-bottom: 35px;
+  padding-bottom: 42px;
   width: 20%;
   align-items: center;
 }
 
-#load:hover{
+.load:hover{
   background-color: white;
   color: black;
 }
@@ -389,7 +389,7 @@ h3{
 }
 
 .row .card img{
- height: 600px;
+ height: auto;
  width:auto;
 } 
 
@@ -447,9 +447,29 @@ h3{
   height: 50px;
   margin-left: -6px;
 }
-#details{
+.details{
   line-height: 7px;
 }
 .collection{
   padding-top: 14px;
+}
+
+.btn .details{
+  color: white;
+  background-color: black;
+
+}
+
+.details .btn:hover{
+  color: black;
+  background-color: white;
+
+}
+
+#icon1, #icon2, #icon3{
+  background-color: transparent;
+}
+
+#icon1:hover, #icon2:hover, #icon3:hover{
+  color: black;
 }
