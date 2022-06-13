@@ -348,7 +348,7 @@ h3{
 
 /*---------------------------SEARCH RESULTS*/
 
-.load{
+#load{
   background-color: black;
   color: white;
   border-color: #fff;
@@ -362,7 +362,7 @@ h3{
   align-items: center;
 }
 
-.load:hover{
+#load:hover{
   background-color: white;
   color: black;
 }
@@ -454,17 +454,6 @@ h3{
   padding-top: 14px;
 }
 
-.btn .details{
-  color: white;
-  background-color: black;
-
-}
-
-.details .btn:hover{
-  color: black;
-  background-color: white;
-
-}
 
 #icon1, #icon2, #icon3{
   background-color: transparent;
@@ -472,4 +461,48 @@ h3{
 
 #icon1:hover, #icon2:hover, #icon3:hover{
   color: black;
+}
+
+.buttons button{
+  font-family: 'Inter', sans-serif;
+  border-radius: 0%;
+  color: white;
+  border-color: white;
+  margin-right: 15px;
+  margin-top: 10px;
+  padding-bottom: 10px;
+}
+
+.buttons button:hover{
+  color: black;
+  background-color: white;
+}
+
+/*---------------------REVIEW*/
+.review-card, .review-card-body{
+  font-family: 'Inter', sans-serif;
+  width: 100%;
+}
+.review-card-body a{
+  float: right;
+  text-decoration: none;
+  color: white;
+}
+
+i .material-symbols-outlined{
+  color:red;
+}
+
+.review-card-body{
+  padding: 0px 20px 0px 20px;
+}
+
+#review{
+  border-color: black;
+  margin-top: -15px;
+}
+
+.line{
+  border-top-color: #bbb;
+  border-width: 2px;
 }
