@@ -654,7 +654,7 @@ i .material-symbols-outlined {
   border-color: white;
   border-width: 5px;
   z-index: 1;
-  left: 40%;
+  left: 35%;
   top: 20%;
 }
 
@@ -662,4 +662,18 @@ i .material-symbols-outlined {
 .row>*,.container-fluid{
   padding-left: 0px;
   --bs-gutter-x: 0rem;
+}
+
+
+/*--------------- USER PROFILE PAGE ---------------*/
+.profile-card div{
+  background-color: #fff;
+  border-color: #fff;
+}
+
+.profile-card b, .profile-card h1{
+  background-color: transparent;
+  color: black;
+  font-family: 'Inter', sans-serif;
+  
 }
