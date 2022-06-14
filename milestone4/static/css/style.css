@@ -597,7 +597,7 @@ i .material-symbols-outlined {
 }
 
 .card div {
-  background-color: black;
+  background-color: transparent;
 }
 
 .plot {
@@ -663,7 +663,9 @@ i .material-symbols-outlined {
 .container-fluid {
   padding-left: 0px;
   --bs-gutter-x: 0rem;
+  width:auto;
 }
+
 
 
 /*--------------- USER PROFILE PAGE ---------------*/
@@ -754,3 +756,12 @@ i .material-symbols-outlined {
  padding-top: 10px;
  
 }
+
+/*.hstack div{
+  padding: 20px;
+}*/
+
+#fix-order>*{
+  width: auto;
+}
+
