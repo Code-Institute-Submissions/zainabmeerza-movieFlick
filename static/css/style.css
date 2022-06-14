@@ -645,35 +645,112 @@ i .material-symbols-outlined {
 /*--------------- GENRE PAGE ---------------*/
 
 /*--------------- ACTOR PAGE ---------------*/
-#img-custom-circle-actor{
+#img-custom-circle-actor {
   position: absolute;
-  max-width: 30%;
-  height: 50%;
+  max-width: 60%;
+  height: auto;
   border-radius: 50%;
   border-style: solid;
   border-color: white;
   border-width: 5px;
   z-index: 1;
-  left: 35%;
+  left: 40%;
   top: 20%;
 }
 
 
-.row>*,.container-fluid{
+.row>*,
+.container-fluid {
   padding-left: 0px;
   --bs-gutter-x: 0rem;
 }
 
 
 /*--------------- USER PROFILE PAGE ---------------*/
-.profile-card div{
+.profile-card div {
   background-color: #fff;
   border-color: #fff;
 }
 
-.profile-card b, .profile-card h1{
+.profile-card b,
+.profile-card h1 {
   background-color: transparent;
   color: black;
   font-family: 'Inter', sans-serif;
-  
+  text-align: center;
+
+}
+
+.user-bio p{
+  background-color: #fff;
+  color: black;
+}
+
+.user-bio a{
+  background-color: #fff;
+  text-decoration: none;
+}
+
+
+.user-bio a:hover{
+  color: #82b3fc;
+ }
+
+.user-bio{
+  font-family: 'Inter', sans-serif;
+}
+
+.user-bio h4{
+  background-color: #fff;
+  color: black;
+  font-weight: lighter;
+}
+
+
+.user-stats .collection, .user-stats li, .user-stats p, .user-stats span{
+  background-color: #fff;
+  color: black;
+  margin-left: 10px;
+  margin-bottom: -20px;
+}
+
+.user-stats{
+  font-family: 'Inter', sans-serif;
+}
+
+.user-stats a{
+  background-color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  float: right;
+  padding-top: 10px;
+}
+
+.user-stats a:hover{
+ color: #82b3fc;
+}
+
+.user-stats b{
+  align-items: center;
+}
+
+#dot{
+  height: 50px;
+  width: 50px;
+  background-color: red;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 0px;
+}
+
+.user-stats .collection .collection-item .avatar{
+  padding-left: 0px;
+}
+
+.user-stats .material-symbols-outlined{
+  color: #fff;
+  font-size: 28px;
+ text-align: center;
+ padding-top: 10px;
+ 
 }
