@@ -28,7 +28,6 @@ nav img {
 
 nav img:hover {
   filter: brightness(90%);
-
 }
 
 nav button {
@@ -41,7 +40,6 @@ nav .btn {
   background-color: black;
   color: white;
   font-family: 'Inter', sans-serif;
-
 }
 
 /*-----------------------------------------COVER IMAGE*/
@@ -94,7 +92,6 @@ textarea {
   background-image: url("../images/blur_edges.png");
   background-repeat: no-repeat;
   background-size: contain;
-
 }
 
 /*-----------------------------------------ABOUT SECTION*/
@@ -106,7 +103,6 @@ textarea {
 .about p {
   font-family: 'Inter', sans-serif;
   text-align: center;
-
 }
 
 h2 {
@@ -134,7 +130,6 @@ h2 {
 /*------------------------FOOTER*/
 footer img {
   height: 220px;
-
 }
 
 .site-footer {
@@ -177,9 +172,7 @@ footer a {
 
 .site-footer a:hover {
   color: white;
-
 }
-
 
 .site-footer a:hover {
   color: white;
@@ -223,7 +216,6 @@ footer a {
   margin-right: 0;
   border-radius: 100%;
   background-color: #33353d;
-
 }
 
 .copyright-text {
@@ -321,14 +313,12 @@ footer a {
   }
 }
 
-
 .fa.fa-facebook,
 .fa.fa-twitter,
 .fa.fa-github,
 .fa.fa-linkedin {
   background-color: transparent;
 }
-
 
 .fa.fa-facebook:hover {
   background-color: #3b5998;
@@ -340,7 +330,6 @@ footer a {
 
 .fa.fa-github:hover {
   color: black;
-
 }
 
 .fa.fa.fa-linkedin:hover {
@@ -349,7 +338,6 @@ footer a {
 
 h3 {
   font-family: 'Shrikhand', cursive;
-
 }
 
 /*---------------------------SEARCH RESULTS*/
@@ -404,7 +392,6 @@ h3 {
 }
 
 .container .col-md-4 {
-
   width: fit-content;
   padding: 0px;
 }
@@ -422,7 +409,6 @@ h3 {
 
 .collection {
   margin: 0.5rem 0 1rem 0;
-
   border-radius: 2px;
   overflow: hidden;
   position: relative;
@@ -463,7 +449,6 @@ h3 {
 .collection {
   padding-top: 14px;
 }
-
 
 #icon1,
 #icon2,
@@ -553,7 +538,6 @@ i .material-symbols-outlined {
 .user {
   font-family: 'Inter', sans-serif;
   text-align: center;
-
 }
 
 .user p {
@@ -574,18 +558,15 @@ i .material-symbols-outlined {
 
 .rated-text h3 {
   font-family: 'Inter', sans-serif;
-
   background-color: transparent;
   color: black;
 }
-
 
 .container .rate-box div {
   background-color: white;
   color: black;
   height: 220px;
   margin-left: 5%;
-
 }
 
 .rounded {
@@ -604,18 +585,15 @@ i .material-symbols-outlined {
 #rate_icon {
   font-size: 30px;
   padding-left: 10px;
-
 }
 
 .thumbs a {
   float: left;
   text-decoration: none;
-
 }
 
 .thumbs a:hover {
   color: #bbb;
-
 }
 
 .card div {
@@ -630,7 +608,6 @@ i .material-symbols-outlined {
   color: red;
 }
 
-
 .comment-box textarea {
   width: 90%;
   height: 44px;
@@ -638,7 +615,6 @@ i .material-symbols-outlined {
   border: hidden;
   font-size: 25px;
 }
-
 
 .comment-box-2 textarea {
   width: 100%;
@@ -666,4 +642,24 @@ i .material-symbols-outlined {
   margin-left: 2px;
 }
 
-/*---------------GENRE PAGE*/
+/*--------------- GENRE PAGE ---------------*/
+
+/*--------------- ACTOR PAGE ---------------*/
+#img-custom-circle-actor{
+  position: absolute;
+  max-width: 30%;
+  height: 50%;
+  border-radius: 50%;
+  border-style: solid;
+  border-color: white;
+  border-width: 5px;
+  z-index: 1;
+  left: 40%;
+  top: 20%;
+}
+
+
+.row>*,.container-fluid{
+  padding-left: 0px;
+  --bs-gutter-x: 0rem;
+}
