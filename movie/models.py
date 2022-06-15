@@ -1,6 +1,10 @@
 from django.db import models
 from actor.models import Actor
 from django.utils.text import slugify
+from io import BytesIO
+from django.core import files
+import requests
+
 # Create your models here.
 
 class Genre(models.Model):
@@ -54,4 +58,13 @@ class Movie(models.Model):
     def __str__(self):
         return self.Title
 
-    
+    def save(self, *args, **kwargs):
+        if self.Poster == '' and self.Poster_url !='':
+            resp = requests.get(self.Poster_url)
+            pb = BytesIO()
+            pb.write(resp.content)
+            pb.flush()
+            file_name = self.Poster_url.split("/")[-1]
+            self.Poster.save(file_name, files.File(pb), save=False)
+        
+        return super().save(*args, **kwargs)

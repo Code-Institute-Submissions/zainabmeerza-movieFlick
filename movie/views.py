@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_or_create
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from movie.models import Movie, Genre, Rating
@@ -79,7 +79,7 @@ def movieDetails(request, imdb_id):
 
         #For the ratings
         for rate in movie_data['Ratings']:
-            r, created = Rating.objects.get_or_create(source=rate['Source'], rate['Value'])
+            r, created = Rating.objects.get_or_create(source=rate['Source'], rating=rate['Value'])
             rating_objects.append(r)
 
         if movie_data['Type'] =='movie':
