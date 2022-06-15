@@ -44,7 +44,7 @@
       </div>
 
       <div class="row">
-        <button type="submit" name="action" class="btn btn-lg" id="load">LOAD MORE</button>
+        <button onclick="location.href='{% url 'pagination' query page_number %}'" class="btn btn-lg" id="load">LOAD MORE</button>
       </div>
       {% endblock %}
    
