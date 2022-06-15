@@ -103,6 +103,8 @@ textarea {
 .about p {
   font-family: 'Inter', sans-serif;
   text-align: center;
+  background-color: transparent;
+  line-height: 10px;
 }
 
 h2 {
@@ -383,7 +385,7 @@ h3 {
 }
 
 .row .card img {
-  height: auto;
+  height:555px;
   width: auto;
 }
 
@@ -757,9 +759,6 @@ i .material-symbols-outlined {
  
 }
 
-/*.hstack div{
-  padding: 20px;
-}*/
 
 #fix-order>*{
   width: auto;
