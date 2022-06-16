@@ -27,7 +27,7 @@
 
             
             <div class="card" style="width: 18rem; height:570px;">
-              <img src="{{ movie.Poster }}" class="card-img-top" alt="...">
+              <a href="{% url 'movie-details' movie.imdbID %}"><img  src="{{ movie.Poster }}" class="card-img-top" alt="Poster of the movie"></a>
               <div class="card-body" style="font-family: 'Inter', sans-serif;">
                 <h5 class="card-title">{{ movie.Title }}</h5>
                 <p class="card-text">{{ movie.Year }}</p>

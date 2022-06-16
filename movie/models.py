@@ -38,7 +38,7 @@ class Movie(models.Model):
     Writer = models.CharField(max_length=300, blank=True)
     Actors = models.ManyToManyField(Actor, blank=True)
     Plot = models.CharField(max_length=900, blank=True)
-    Language = models.CharField(max_length=300, blank=True)
+   
     Country = models.CharField(max_length=100, blank=True)
     Awards = models.CharField(max_length=250, blank=True)
     Poster = models.ImageField(upload_to='movies', blank=True)

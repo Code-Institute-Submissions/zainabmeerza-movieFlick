@@ -92,7 +92,6 @@ def movieDetails(request, imdb_id):
                 Director=movie_data['Director'],
                 Writer=movie_data['Writer'],
                 Plot=movie_data['Plot'],
-                Langauge=movie_data['Language'],
                 Awards=movie_data['Awards'],
                 Poster_url=movie_data['Poster'],
                 Metascore=movie_data['Metascore'],
@@ -119,7 +118,6 @@ def movieDetails(request, imdb_id):
                     Director=movie_data['Director'],
                     Writer=movie_data['Writer'],
                     Plot=movie_data['Plot'],
-                    Langauge=movie_data['Language'],
                     Awards=movie_data['Awards'],
                     Poster_url=movie_data['Poster'],
                     Metascore=movie_data['Metascore'],
@@ -148,4 +146,4 @@ def movieDetails(request, imdb_id):
     template = loader.get_template('movie_details.html')
 
     return HttpResponse(template.render(context, request))
-        
+
