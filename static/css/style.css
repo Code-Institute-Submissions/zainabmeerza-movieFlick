@@ -102,7 +102,7 @@ textarea {
 
 .about p {
   font-family: 'Inter', sans-serif;
-  text-align: center;
+  text-align: left;
 }
 
 h2 {
@@ -383,8 +383,7 @@ h3 {
 }
 
 .row .card img {
-  height: auto;
-  width: auto;
+  height: 410px;
 }
 
 .no-gutters {
@@ -442,9 +441,6 @@ h3 {
   margin-left: -6px;
 }
 
-.details {
-  line-height: 7px;
-}
 
 .collection {
   padding-top: 14px;
