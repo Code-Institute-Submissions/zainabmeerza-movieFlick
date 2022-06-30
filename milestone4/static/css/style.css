@@ -97,12 +97,12 @@ textarea {
 /*-----------------------------------------ABOUT SECTION*/
 .about {
   padding: 50px;
-  text-align: center;
+  text-align: left;
 }
 
 .about p {
   font-family: 'Inter', sans-serif;
-  text-align: center;
+  text-align: left;
   background-color: transparent;
   
 }
@@ -385,8 +385,7 @@ h3 {
 }
 
 .row .card img {
-  height:555px;
-  width: auto;
+  height:410px;
 }
 
 .no-gutters {
@@ -444,9 +443,7 @@ h3 {
   margin-left: -6px;
 }
 
-.details {
-  line-height: 7px;
-}
+
 
 .collection {
   padding-top: 14px;

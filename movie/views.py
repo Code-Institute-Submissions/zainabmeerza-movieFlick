@@ -108,6 +108,32 @@ def movieDetails(request, imdb_id):
             m.Actors.set(actor_objects)
             m.Ratings.set(rating_objects)
 
+        elif movie_data['Type'] =='game':
+            m, created = Movie.objects.get_or_create(
+                Title=movie_data['Title'],
+                Year=movie_data['Year'],
+                Rated=movie_data['Rated'],
+                Released=movie_data['Released'],
+                Runtime=movie_data['Runtime'],
+                Director=movie_data['Director'],
+                Writer=movie_data['Writer'],
+                Plot=movie_data['Plot'],
+                Awards=movie_data['Awards'],
+                Poster_url=movie_data['Poster'],
+                Metascore=movie_data['Metascore'],
+                imdbRating=movie_data['imdbRating'],
+                imdbVotes=movie_data['imdbVotes'],
+                imdbID=movie_data['imdbID'],
+                Type=movie_data['Type'],
+                DVD=movie_data['DVD'],
+                BoxOffice=movie_data['BoxOffice'],
+                Production=movie_data['Production'],
+                Website=movie_data['Website'],
+                )
+            m.Genre.set(genre_objects)
+            m.Actors.set(actor_objects)
+            m.Ratings.set(rating_objects)
+
         else:
             m, created = Movie.objects.get_or_create(
                     Title=movie_data['Title'],
