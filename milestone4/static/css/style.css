@@ -658,6 +658,16 @@ i .material-symbols-outlined {
 }
 
 
+#actor-card div{
+  background-color: transparent;
+    margin-top: -90px;
+    padding-bottom: 100px;
+}
+
+#actor-card b,#actor-card h1{
+  background-color: transparent;
+}
+
 
 .row>*,
 .container-fluid {
