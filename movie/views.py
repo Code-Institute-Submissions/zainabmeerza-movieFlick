@@ -4,6 +4,7 @@ from django.template import loader
 from movie.models import Movie, Genre, Rating
 from actor.models import Actor
 from django.utils.text import slugify
+from django.core.paginator import Paginator
 import requests
 
 # Create your views here.
@@ -50,6 +51,11 @@ def movieDetails(request, imdb_id):
     if Movie.objects.filter(imdbID=imdb_id).exists():
         movie_data = Movie.objects.get(imdbID=imdb_id)
         our_db = True
+
+        context = {
+            'movie_data':movie_data,
+            'our_db':our_db,
+        }
 
     else:
         url = 'https://www.omdbapi.com/?apikey=9c393141&i=' + imdb_id
@@ -173,3 +179,21 @@ def movieDetails(request, imdb_id):
 
     return HttpResponse(template.render(context, request))
 
+
+def genres(request, genre_slug):
+    genre = get_object_or_404(Genre, slug=genre_slug)
+    movies = Movie.objects.filter(Genre=genre)
+
+    #pagination
+    paginator = Paginator(movies, 9)
+    page_number = request.GET.get('page')
+    movie_data = paginator.get_page(page_number)
+ 
+    context = {
+        'movie_data': movie_data,
+        'genre': genre,
+    }
+
+    template = loader.get_template('genre.html')
+
+    return HttpResponse(template.render(context, request))

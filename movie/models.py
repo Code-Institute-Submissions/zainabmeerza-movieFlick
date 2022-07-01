@@ -4,12 +4,16 @@ from django.utils.text import slugify
 from io import BytesIO
 from django.core import files
 import requests
+from django.urls import reverse 
 
 # Create your models here.
 
 class Genre(models.Model):
     title = models.CharField(max_length=25)
     slug = models.SlugField(null=False, unique=True)
+
+    def get_absolute_url(self):
+        return reverse('genres', args=[self.slug])
 
     def __str__(self):
         return self.title
@@ -38,7 +42,7 @@ class Movie(models.Model):
     Writer = models.CharField(max_length=300, blank=True)
     Actors = models.ManyToManyField(Actor, blank=True)
     Plot = models.CharField(max_length=900, blank=True)
-   
+    #Language = models.CharField(max_length=300, blank=True)
     Country = models.CharField(max_length=100, blank=True)
     Awards = models.CharField(max_length=250, blank=True)
     Poster = models.ImageField(upload_to='movies', blank=True)

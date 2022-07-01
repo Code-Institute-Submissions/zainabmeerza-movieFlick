@@ -2,56 +2,49 @@
 {% load static %}
 
 
-<body>
- 
-  <!-- TITLE -->
-  {% block banner %}
-  <div class="container-fluid">
-    <div class="container">
-      <div class="row">
-        <h2>Search Results for:</h2>
-        <h3 id="movie-search">{{ request.GET.q }}</h3>
-      </div>
+
+<!-- TITLE -->
+{% block banner %}
+<div class="container-fluid">
+  <div class="container">
+    <div class="row">
+      <h2>Search Results for:</h2>
+      <h3 id="movie-search">{{ request.GET.q }}</h3>
     </div>
   </div>
-  {% endblock %}
+</div>
+{% endblock %}
 
-  <!-- ICONS SECTION -->
-  
-      {% block content %}
-    
-      <div class="row" id="fix-order">
-        {% for movie in movie_data.Search %}
-        <div class="hstack gap-5" style="margin:20px;">
-          <div class="bg-light border">
+<!-- ICONS SECTION -->
 
-            
-            <div class="card" style="width: 18rem; height:570px;">
-              <a href="{% url 'movie-details' movie.imdbID %}"><img  src="{{ movie.Poster }}" class="card-img-top" alt="Poster of the movie"></a>
-              <div class="card-body" style="font-family: 'Inter', sans-serif;">
-                <h5 class="card-title">{{ movie.Title }}</h5>
-                <p class="card-text">{{ movie.Year }}</p>
-                <p class="card-text"><b style="text-transform: uppercase;">{{ movie.Type }}</b></p>
-            
-              </div>
-            </div>
-            
+{% block content %}
 
-          </div>
-         
+<div class="row" id="fix-order">
+  {% for movie in movie_data.Search %}
+  <div class="hstack gap-5" style="margin:20px;">
+    <div class="bg-light border">
+
+
+      <div class="card" style="width: 18rem; height:570px;">
+        <a href="{% url 'movie-details' movie.imdbID %}"><img src="{{ movie.Poster }}" class="card-img-top"
+            alt="Poster of the movie"></a>
+        <div class="card-body" style="font-family: 'Inter', sans-serif;">
+          <h5 class="card-title">{{ movie.Title }}</h5>
+          <p class="card-text">{{ movie.Year }}</p>
+          <p class="card-text"><b style="text-transform: uppercase;">{{ movie.Type }}</b></p>
+
         </div>
-        {% endfor %}
       </div>
 
-      <div class="row">
-        <button onclick="location.href='{% url 'pagination' query page_number %}'" class="btn btn-lg" id="load">LOAD MORE</button>
-      </div>
-      {% endblock %}
-   
 
-  
+    </div>
 
+  </div>
+  {% endfor %}
+</div>
 
-</body>
-
-</html>
+<div class="row">
+  <button onclick="location.href='{% url 'pagination' query page_number %}'" class="btn btn-lg" id="load">LOAD
+    MORE</button>
+</div>
+{% endblock %}
