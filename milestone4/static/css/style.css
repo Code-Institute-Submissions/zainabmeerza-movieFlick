@@ -646,7 +646,7 @@ i .material-symbols-outlined {
 /*--------------- ACTOR PAGE ---------------*/
 #img-custom-circle-actor {
   position: absolute;
-  max-width: 60%;
+  max-width: 20%;
   height: auto;
   border-radius: 50%;
   border-style: solid;
@@ -656,6 +656,7 @@ i .material-symbols-outlined {
   left: 40%;
   top: 20%;
 }
+
 
 
 .row>*,

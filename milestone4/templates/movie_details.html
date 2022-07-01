@@ -42,8 +42,7 @@
       <p>Writer: <b>{{ movie_data.Writer }}</b></p>
 
       {% if our_db is True %}
-      <p>Actors: {% for actor in movie_data.Actors.all %}<a
-          href="{{ actor.get_absolute_url }}"><b>{{ actor }}</a>,</b>{% endfor %}</p>
+      <p>Actors: {% for actor in movie_data.Actors.all %}<b><a href="{{ actor.get_absolute_url }}">{{ actor }}</a>,</b>{% endfor %}</p>
       {% else %}
       <p>Actors: <b>{{ movie_data.Actors }}</b></p>
       {% endif %}
