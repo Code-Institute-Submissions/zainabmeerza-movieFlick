@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="wrapper">
+    <div class="box">
+
+        <h1>Sign in to MoveieFlick</h1>
+
+        <form method="post" role="form" action="">
+            {% csrf_token %}
+
+            <div class="inputBox">
+                {{ form.username }}
+                <p>{{form.username.errors}}</p>
+                <label for="username">USERNAME</label>
+            </div>
+            
+            <div class="inputBox">
+                {{ form.password }}
+                <p>{{form.password.errors}}</p>
+                <label for="password">PASSWORD</label>
+            </div>
+            <br>
+
+            {% if form.errors %}
+            <div class="inputBox">
+                <span style="color:red; font-weight:bold;">{{ form.errors }} Your Username or Password did not match.</span>
+            </div>
+            {% endif %}
+            
+            <button type="submit" value="login" id="submit">Login</button>
+            <input type="hidden" name="next" value="{{ next }}" />
+        </form>
+
+        <p>New to MovieFlick? <a href="{% url 'registration_register' %}"> Create an account.</a></p>
+        
+    </div>
+</div>
+    
+
+{% endblock %}

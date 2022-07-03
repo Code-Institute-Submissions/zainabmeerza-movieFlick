@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="wrapper">
+    <div class="box">
+
+        <h1>Register with MoveieFlick</h1>
+
+        <form method="post" role="form" action="">
+            {% csrf_token %}
+
+            <div class="inputBox">
+                {{ form.username }}
+                <label for="username">USERNAME</label>
+            </div>
+            
+            <div class="inputBox">
+                {{ form.email }}
+                <label for="email">EMAIL</label>
+            </div>
+
+            <div class="inputBox">
+                {{ form.password }}
+                <label for="password">PASSWORD</label>
+            </div>
+
+            <div class="inputBox">
+                {{ form.confirm_password }}
+                <label for="confirm_password">RE-ENTER PASSWORD</label>
+            </div>
+            <br>
+
+            {% if form.errors %}
+            <div class="inputBox">
+                <span style="color:red; font-weight:bold;">{{ form.errors }}</span>
+            </div>
+            {% endif %}
+            
+            <button type="submit" name="action" id="submit">Register Account</button>
+        </form>
+
+        <p>Already have a MovieFlick account? <a href="{% url 'login' %}"> Login.</a></p>
+        
+    </div>
+</div>
+    
+
+{% endblock %}
