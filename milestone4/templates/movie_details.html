@@ -158,7 +158,7 @@
             <img src="{% static 'images/no_avatar.jpg' %}" alt="" class="circle">
           {% endif %}
 
-          <span class="title">{{ review.user.first_name }} {{ review.user.last_name }} <a href="#"><i class="material-symbols-outlined">STAR</i> {{ review.rate }}
+          <span class="title">{{ review.user.first_name }} {{ review.user.last_name }} <a href="{% url 'user-review' review.user.username movie_data.imdbID %}"><i class="material-symbols-outlined">STAR</i> {{ review.rate }}
               / 10</a></span>
           <p><b>@{{ review.user.username }}</b></p>
           <p>{{ review.date }}</p>

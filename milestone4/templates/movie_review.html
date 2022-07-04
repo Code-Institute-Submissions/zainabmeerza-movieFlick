@@ -1,14 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-<body>
-  <!-- NAVIGATION SECTION -->
-  <nav>
-    <a href="index.html"><img src="static/images/logo-4.png" alt="logo"></a>
-    <button type="button" class="btn  btn-lg">SIGN UP</button>
-    <button type="button" class="btn  btn-lg">LOGIN</button>
-  </nav>
-
+{% block banner %}
   <!-- ICONS SECTION -->
   <div class="container-fluid">
     <div class="container">
@@ -16,34 +9,36 @@
 
       <div class="row g-0">
         <div class="col-sm-6 col-md-4">
-          <img src="static/images/movie-posters/1.jpg" class="card-img-top" height="600px" width="auto" alt="...">
+          <img src="{{ movie.Poster.url }}" class="card-img-top"  width="auto" alt="movie poster">
         </div>
         <div class="col-6 col-md-8">
-          <h1>Joker</h1>
-          <h5>Type: movie</h5>
+          <h1>{{ movie.Title }}</h1>
+          <h5>Type: {{ movie.Type }}</h5>
           <p class="plot">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum.
+            {{ movie.Plot }}
           </p>
 
           <div class="container rate-box rounded">
             <div class="row rounded">
 
               <div class="col-4">
-                <img src="static/images/no_avatar.jpg" alt="" class="circle img-responsive">
+
+                {% if review.user.profile.picture %} 
+                  <img src="{{ review.user.profile.picture.url }}" alt="user profile picture" height=130px width=130px class="circle img-responsive">
+                {% else %}
+                  <img src="{% static 'images/no_avatar.jpg' %}" alt="no profile picture" height=130px width=130px class="circle img-responsive">
+                {% endif %}
+
                 <span class="user">
-                  <p><b>Zainab Meerza </b></p>
-                  <p>@zmeerza</p>
+                  <p><b>{{ review.user.first_name }} {{ review.user.last_name }}</b></p>
+                  <p>@{{ review.user.username }}</p>
                 </span>
               </div>
               <div class="col-6 longer"> <span class="rated-text">
                   <br></br>
                   <br>
-                  <h3>Rated this movie.</h3>
-                  <h3>10/10</h3>
+                  <h3>Rated this movie:</h3>
+                  <h3>{{ review.rate }} / 10</h3>
                 </span></div>
 
 
@@ -65,24 +60,13 @@
           <ul class="collection username">
             <hr class="line">
             <li class="collection-item avatar">
-              <h5><b>Zainab Meerza</b> <a href="#">Review <i class="material-symbols-outlined"
+              <h5><b>{{ review.user.first_name }} {{ review.user.last_name }}</b> <a href="#">Review <i class="material-symbols-outlined"
                     id="rate_icon">rate_review</i></a></h5>
-              <p>@zmeerza</p>
-              <p><b>13 June 2022</b></p>
+              <p>@{{ review.user.username }}</p>
+              <p><b>{{ review.date }}</b></p>
               <br>
               <p class="plot">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex
-                ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                mollit
-                anim id est laborum.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                mollit
-                anim id est laborum.
+                {{ review.text }}
               </p>
               <div class="card thumbs">
                 <div class="card-body">
@@ -169,73 +153,4 @@
   </div>
 
 
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="container-fluid">
-      <div class="row">
-
-        <div class="col-xs-6 col-md-3">
-          <img src="static/images/footer-img.png" alt="logo">
-        </div>
-
-        <div class="col-sm-12 col-md-6">
-          <h3>MovieFlick</h3>
-          <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Quis eleifend quam adipiscing vitae proin sagittis. Laoreet id
-            donec ultrices tincidunt arcu non.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua.
-        </div>
-
-
-
-        <div class="col-xs-6 col-md-3">
-          <h3>Quick Links</h3>
-          <ul class="footer-links">
-            <li><a href="http://scanfcode.com/about/">About Us</a></li>
-            <li><a href="http://scanfcode.com/contact/">Contact Us</a></li>
-            <li><a href="http://scanfcode.com/contribute-at-scanfcode/">Contribute</a></li>
-            <li><a href="http://scanfcode.com/privacy-policy/">Privacy Policy</a></li>
-            <li><a href="http://scanfcode.com/sitemap/">Sitemap</a></li>
-          </ul>
-        </div>
-      </div>
-      <hr>
-    </div>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-8 col-sm-6 col-xs-12">
-          <p class="copyright-text"><em>For Educational Purposes Only </em>| Code Institute Milestone Project 4 by
-            <a href="https://www.linkedin.com/in/zainabmeerza/" target=”_blank”>Zainab Meerza.</a>
-          </p>
-        </div>
-
-        <div class="col-md-4 col-sm-6 col-xs-12">
-          <ul class="social-icons">
-            <li><a class="facebook" href="https://www.facebook.com/" target=”_blank”><i class="fa fa-facebook"></i></a>
-            </li>
-            <li><a class="twitter" href="https://www.twitter.com/" target=”_blank”><i class="fa fa-twitter"></i></a>
-            </li>
-            <li><a class="github" href="https://www.github.com/zainabmeerza" target=”_blank”><i
-                  class="fa fa-github"></i></a></li>
-            <li><a class="linkedin" href="https://www.linkedin.com/in/zainabmeerza/" target=”_blank”><i
-                  class="fa fa-linkedin"></i></a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-
-  <!--  SCRIPTS -->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <!-- BOOTSTRAP -->
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
-    integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous">
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
-    integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous">
-  </script>
-</body>
-
-</html>
+  {% endblock %}
