@@ -3,32 +3,39 @@
 
 {% block content %}
 
-<div class="wrapper">
-    <div class="box">
 
-        <h1>Register with MoveieFlick</h1>
-
+        <h1 style="text-align: center;
+        padding-bottom: 20px;
+        font-size: 2.5rem;">Register with MovieFlick</h1>
+        <br>
         <form method="post" role="form" action="">
             {% csrf_token %}
 
             <div class="inputBox">
-                {{ form.username }}
-                <label for="username">USERNAME</label>
+                <label for="first_name">FIRST NAME </label>
+                {{ form.first_name }}
+                <label for="last_name">LAST NAME </label>
+                {{ form.last_name }}
             </div>
+            <br>
+
+            <div class="inputBox">
+                <label for="username">USERNAME </label>
+                {{ form.username }}
+            </div>
+            <br>
             
             <div class="inputBox">
+                <label for="email">EMAIL </label>
                 {{ form.email }}
-                <label for="email">EMAIL</label>
             </div>
+            <br>
 
             <div class="inputBox">
+                <label for="password">PASSWORD </label>
                 {{ form.password }}
-                <label for="password">PASSWORD</label>
-            </div>
-
-            <div class="inputBox">
+                <label for="confirm_password">RE-ENTER PASSWORD </label>
                 {{ form.confirm_password }}
-                <label for="confirm_password">RE-ENTER PASSWORD</label>
             </div>
             <br>
 
@@ -38,13 +45,13 @@
             </div>
             {% endif %}
             
-            <button type="submit" name="action" id="submit">Register Account</button>
+            <button style="color: white;
+            font-family: 'Inter', sans-serif;
+            border: solid 1px;" type="submit" class="btn  btn-lg" name="action" id="submit">REGISTER ACCOUNT</button>
         </form>
-
+        <br>
         <p>Already have a MovieFlick account? <a href="{% url 'login' %}"> Login.</a></p>
         
-    </div>
-</div>
-    
+
 
 {% endblock %}

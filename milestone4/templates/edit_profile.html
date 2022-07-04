@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<div class="wrapper">
+    <div class="box">
+
+        <h1>Edit Your Profile</h1>
+
+        <form method="post" role="form" action="">
+            {% csrf_token %}
+
+            <div class="input-group mb-3">
+                <input type="file" class="form-control" id="inputGroupFile02">
+                <label class="input-group-text" for="inputGroupFile02">Upload</label>
+              </div>
+
+            <div class="inputBox">
+                <span class="material-symbols-outlined">account_circle</span>
+                {{ form.first_name }}
+                <label for="first_name">FIRST NAME</label>
+            </div>
+
+            <div class="inputBox">
+                <span class="material-symbols-outlined">account_circle</span>
+                {{ form.last_name }}
+                <label for="last_name">LAST NAME</label>
+            </div>
+
+            <div class="inputBox">
+                {{ form.location }}
+                <label for="location">LOCATION</label>
+            </div>
+
+            <div class="inputBox">
+                {{ form.url }}
+                <label for="url">URL</label>
+            </div>
+
+            <div class="inputBox">
+                {{ form.profile_info }}
+                <label for="profile_info">ABOUT</label>
+            </div>
+            <br>
+
+            {% if form.errors %}
+            <div class="inputBox">
+                <span style="color:red; font-weight:bold;">{{ form.errors }}</span>
+            </div>
+            {% endif %}
+
+            <button type="submit" name="action" id="submit">Update Profile</button>
+        </form>
+
+
+
+    </div>
+</div>
+
+
+{% endblock %}

@@ -773,4 +773,14 @@ i .material-symbols-outlined {
 }
 
 /*--------------- LOGIN --------------------*/
+#id_last_name, #id_first_name, #id_email, #id_password, #id_confirm_password, #id_username{
+  background-color: white;
+  border-radius: 5px;
+  width: 30%;
+}
 
+.inputBox label{
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 20px;
+}

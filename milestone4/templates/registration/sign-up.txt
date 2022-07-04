@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+        <h1>Register with MoveieFlick</h1>
+
+        <form class="row" method="post" role="form" action="">
+            {% csrf_token %}
+
+            <div class="col-12">
+                <label for="username">USERNAME</label>
+                {{ form.username }}
+            </div>
+
+            <div class="col-12">
+                <label for="email">EMAIL</label>
+                {{ form.email }}
+            </div>
+
+            <div class="col-md-6">
+                <label for="first_name" class="form-label">FIRST NAME</label>
+                {{ form.first_name }}
+            </div>
+
+            <div class="col-md-6">
+                <label for="last_name" class="form-label">LAST NAME</label>
+                {{ form.last_name }}
+            </div>
+
+            <div class="col-md-6">
+                
+                <label for="password">PASSWORD</label>
+                {{ form.password }}
+            </div>
+
+            <div class="col-md-6">
+                
+                <label for="confirm_password">RE-ENTER PASSWORD</label>
+                {{ form.confirm_password }}
+            </div>
+            <br>
+
+            {% if form.errors %}
+            <div class="inputBox">
+                <span style="color:red; font-weight:bold;">{{ form.errors }}</span>
+            </div>
+            {% endif %}
+
+            <button type="submit" name="action" id="submit">Register Account</button>
+        </form>
+
+        <p>Already have a MovieFlick account? <a href="{% url 'login' %}"> Login.</a></p>
+
+
+<form class="row g-3" method="post" role="form" action="">
+    <div class="col-md-6">
+        <label for="inputEmail4" class="form-label">FIRST NAME</label>
+        <input type="email" class="form-control" id="inputEmail4">
+    </div>
+    <div class="col-md-6">
+        <label for="inputPassword4" class="form-label">LAST NAME</label>
+        <input type="password" class="form-control" id="inputPassword4">
+    </div>
+    <div class="col-12">
+        <label for="inputAddress" class="form-label">USERNAME</label>
+        <input type="text" class="form-control" id="inputAddress">
+    </div>
+    <div class="col-12">
+        <label for="inputAddress2" class="form-label">EMAIL</label>
+        <input type="text" class="form-control" id="inputAddress2">
+    </div>
+    <div class="col-md-6">
+        <label for="inputCity" class="form-label">PASSWORD</label>
+        <input type="text" class="form-control" id="inputCity">
+    </div>
+    <div class="col-md-6">
+        <label for="inputCity" class="form-label">RE-ENTER PASSWORD</label>
+        <input type="text" class="form-control" id="inputCity">
+    </div>
+
+    <div class="col-12">
+         <button style="color: white;
+         font-family: 'Inter', sans-serif;
+         border: solid 1px;" type="submit" name="action" class="btn  btn-lg">REGISTER ACCOUNT</button>
+    </div>
+    <p>Already have a MovieFlick account? <a href="{% url 'login' %}"> Login.</a></p>
+</form>
+{% endblock %}
+
+
+------------------------------------------------------------------------------
