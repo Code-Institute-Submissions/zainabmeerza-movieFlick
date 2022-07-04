@@ -3,24 +3,20 @@
 
 {% block content %}
 
-<div class="wrapper">
-    <div class="box">
 
-        <h1>Sign in to MoveieFlick</h1>
-
+        <h1 class="form-title">Sign in to MoveieFlick</h1>
+        <br></br>
         <form method="post" role="form" action="">
             {% csrf_token %}
 
             <div class="inputBox">
-                {{ form.username }}
-                <p>{{form.username.errors}}</p>
                 <label for="username">USERNAME</label>
+                {{ form.username }}
             </div>
-            
+            <br></br>
             <div class="inputBox">
-                {{ form.password }}
-                <p>{{form.password.errors}}</p>
                 <label for="password">PASSWORD</label>
+                {{ form.password }}
             </div>
             <br>
 
@@ -30,14 +26,12 @@
             </div>
             {% endif %}
             
-            <button type="submit" value="login" id="submit">Login</button>
+            <div class="hover">
+            <button  type="submit" class="btn  btn-lg" name="action">LOGIN</button> </div>
             <input type="hidden" name="next" value="{{ next }}" />
         </form>
-
-        <p>New to MovieFlick? <a href="{% url 'registration_register' %}"> Create an account.</a></p>
+        <br></br>
+        <p style="text-align:center">New to MovieFlick? <a href="{% url 'signup' %}"> Create an account.</a></p>
         
-    </div>
-</div>
-    
 
 {% endblock %}

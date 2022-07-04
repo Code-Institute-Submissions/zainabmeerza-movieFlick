@@ -4,37 +4,43 @@
 {% block content %}
 
 
-        <h1 style="text-align: center;
-        padding-bottom: 20px;
-        font-size: 2.5rem;">Register with MovieFlick</h1>
+        <h1 class="form-title">Register with MovieFlick</h1>
         <br>
         <form method="post" role="form" action="">
             {% csrf_token %}
 
             <div class="inputBox">
-                <label for="first_name">FIRST NAME </label>
+                <label for="first_name">FIRST NAME </label> <br>
                 {{ form.first_name }}
-                <label for="last_name">LAST NAME </label>
+            </div>
+            <br>
+
+            <div class="inputBox">
+                <label for="last_name">LAST NAME </label> <br>
                 {{ form.last_name }}
             </div>
             <br>
 
             <div class="inputBox">
-                <label for="username">USERNAME </label>
+                <label for="username">USERNAME </label> <br>
                 {{ form.username }}
             </div>
             <br>
             
             <div class="inputBox">
-                <label for="email">EMAIL </label>
+                <label for="email">EMAIL </label> <br>
                 {{ form.email }}
             </div>
             <br>
 
             <div class="inputBox">
-                <label for="password">PASSWORD </label>
+                <label for="password">PASSWORD </label> <br>
                 {{ form.password }}
-                <label for="confirm_password">RE-ENTER PASSWORD </label>
+            </div>
+            <br>
+
+            <div class="inputBox">
+                <label for="confirm_password">RE-ENTER PASSWORD </label> <br>
                 {{ form.confirm_password }}
             </div>
             <br>
@@ -44,13 +50,13 @@
                 <span style="color:red; font-weight:bold;">{{ form.errors }}</span>
             </div>
             {% endif %}
-            
-            <button style="color: white;
-            font-family: 'Inter', sans-serif;
-            border: solid 1px;" type="submit" class="btn  btn-lg" name="action" id="submit">REGISTER ACCOUNT</button>
+            <div class="hover">
+            <button type="submit" class="btn  btn-lg" name="action">REGISTER ACCOUNT</button>
+            </div>
+             <br></br>
+             <p style="text-align:center">Already have a MovieFlick account? <a href="{% url 'login' %}"> Login.</a></p>
         </form>
-        <br>
-        <p>Already have a MovieFlick account? <a href="{% url 'login' %}"> Login.</a></p>
+       
         
 
 

@@ -60,7 +60,7 @@ form .submit:hover {
 }
 
 .cover {
-  height: 900px;
+  height: 600px;
   background-image: url("../images/gravity_blur_edges.png");
   background-repeat: no-repeat;
   background-size: contain;
@@ -85,7 +85,16 @@ textarea {
   color: #fff;
   background-color: rgba(0, 0, 0, .5);
 }
+.col{
+  text-align: center;
+}
 
+.row .col p{
+  text-align: center;
+  padding: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
 /*----------------------------------------- ROW OF IMAGES*/
 .cover-2 {
   height: 500px;
@@ -131,7 +140,7 @@ h2 {
 
 /*------------------------FOOTER*/
 footer img {
-  height: 220px;
+  height: 150px;
 }
 
 .site-footer {
@@ -773,14 +782,47 @@ i .material-symbols-outlined {
 }
 
 /*--------------- LOGIN --------------------*/
-#id_last_name, #id_first_name, #id_email, #id_password, #id_confirm_password, #id_username{
+#id_last_name, #id_first_name, #id_email, #id_password, #id_confirm_password, #id_username, #id_location, #id_url, #id_profile_info, #id_picture, #id_old_password, #id_new_password, #id_new_password1, #id_new_password2{
   background-color: white;
   border-radius: 5px;
-  width: 30%;
+  width: 40%;
+  color: black;
 }
 
 .inputBox label{
   padding-left: 20px;
   padding-right: 20px;
   font-size: 20px;
+  letter-spacing: 1px;
+  
+  font-family: 'Inter', sans-serif;
+}
+
+form{
+  text-align: center;
+}
+
+.form-title{
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+form .hover button{
+  color:white;
+  font-family: 'Inter', sans-serif;
+  border: solid 1px;
+}
+
+form .hover button:hover{
+  color: black;
+  background-color: white;
+}
+
+.wrapper{
+  text-align: center;
+}
+
+.wrapper .check{
+  color: greenyellow;
+  font-size: 90px;
 }

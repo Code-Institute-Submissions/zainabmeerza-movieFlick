@@ -39,10 +39,23 @@
 {% endblock %}
 
 {% block content-images %}
-<img src="{% static 'images/blur_edges.png' %}" alt="The nightmare before christmas" height="300px" width="auto">
-<img src="{% static 'images/blur_edges_2.png' %}" alt="The Avengers" height="300px" width="auto">
-<img src="{% static 'images/tommorowland.png' %}" alt="Tommorowland" height="300px" width="auto">
-<img src="{% static 'images/madagascar.png' %}" alt="Madagascar" height="300px" width="420px">
+<div class="row">
+  <div class="col">
+    <img src="{% static 'images/blur_edges.png' %}" alt="The nightmare before christmas" height="300px" width="auto">
+  </div>
+
+  <div class="col">
+    <img src="{% static 'images/blur_edges_2.png' %}" alt="The Avengers" height="300px" width="auto">
+  </div>
+
+  <div class="col"> 
+    <img src="{% static 'images/tommorowland.png' %}" alt="Tommorowland" height="300px" width="auto">
+  </div>
+
+
+
+
+</div>
 {% endblock %}
 
 

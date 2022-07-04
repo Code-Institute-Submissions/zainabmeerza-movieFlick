@@ -4,44 +4,44 @@
 
 {% block content %}
 
-<div class="wrapper">
-    <div class="box">
-
-        <h1>Edit Your Profile</h1>
-
-        <form method="post" role="form" action="">
+        <h1 class="form-title">Edit Your Profile</h1>
+        <br>
+        <form method="post" enctype="multipart/form-data" role="form" action="">
             {% csrf_token %}
 
-            <div class="input-group mb-3">
-                <input type="file" class="form-control" id="inputGroupFile02">
-                <label class="input-group-text" for="inputGroupFile02">Upload</label>
+            <div class="inputBox">
+                <label for="picture">PROFILE PICTURE</label> <br>
+                {{ form.picture }}
               </div>
+              <br>
 
             <div class="inputBox">
-                <span class="material-symbols-outlined">account_circle</span>
-                {{ form.first_name }}
-                <label for="first_name">FIRST NAME</label>
+                <label for="first_name">FIRST NAME</label> <br>
+                {{ form.first_name }} 
             </div>
+            <br>
 
             <div class="inputBox">
-                <span class="material-symbols-outlined">account_circle</span>
-                {{ form.last_name }}
-                <label for="last_name">LAST NAME</label>
+                <label for="last_name">LAST NAME</label> <br>
+                {{ form.last_name }}    
             </div>
+            <br>
 
             <div class="inputBox">
+                <label for="location">LOCATION</label><br>
                 {{ form.location }}
-                <label for="location">LOCATION</label>
             </div>
+            <br>
 
             <div class="inputBox">
+                <label for="url">URL</label><br>
                 {{ form.url }}
-                <label for="url">URL</label>
             </div>
+            <br>
 
             <div class="inputBox">
+                <label for="profile_info">ABOUT</label><br>
                 {{ form.profile_info }}
-                <label for="profile_info">ABOUT</label>
             </div>
             <br>
 
@@ -51,13 +51,9 @@
             </div>
             {% endif %}
 
-            <button type="submit" name="action" id="submit">Update Profile</button>
+            <div class="hover">
+            <button type="submit" class="btn  btn-lg" name="action">UPDATE PROFILE</button>
+            </div>
         </form>
-
-
-
-    </div>
-</div>
-
 
 {% endblock %}
