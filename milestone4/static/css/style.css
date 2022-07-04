@@ -827,3 +827,7 @@ form .hover button:hover{
   font-size: 90px;
 }
 
+.hover-button a:hover{
+  color: black;
+  background-color: white;
+}

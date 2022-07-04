@@ -113,9 +113,11 @@
     <div class="details">
       <p>Box Office: <b>{{ movie_data.BoxOffice }}</b></p>
       <p>IMDB Votes: <b>{{ movie_data.imdbVotes }}</b></p>
+      <p>IMDB ID: <b>{{ movie_data.imdbID }}</b></p>
       <p>Production: <b>{{ movie_data.Production }}</b></p>
     </div>
 
+    <!--
     <div class="buttons">
       <button type="button" class="btn btn-lg"><span class="material-symbols-outlined" id="icon1">star</span>
         RATE</button>
@@ -124,7 +126,16 @@
       <button type="button" class="btn btn-lg"><span class="material-symbols-outlined"
           id="icon3">playlist_add_check</span> WATCHED</button>
     </div>
+  -->
 
+  <div>
+    <a style="margin-left: 10px; border: solid 1px; color:white;" class="btn btn-lg hover-button"><span class="material-symbols-outlined" id="icon1">star</span>
+      RATE</a>
+    <a  style="margin-left: 10px; border: solid 1px; color:white;" href="{% url 'add-movies-to-watch' movie_data.imdbID %}" class="btn btn-lg hover-button"><span class="material-symbols-outlined" id="icon2">playlist_add</span>
+      WATCHLIST</a>
+    <a style="margin-left: 10px; border: solid 1px; color:white;" href="{% url 'add-movies-watched' movie_data.imdbID %}"  class="btn btn-lg hover-button"><span class="material-symbols-outlined"
+        id="icon3">playlist_add_check</span> WATCHED</a>
+  </div>
   </div>
 
 </div>
