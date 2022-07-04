@@ -729,7 +729,7 @@ i .material-symbols-outlined {
 
 
 .user-stats .collection, .user-stats li, .user-stats p, .user-stats span{
-  background-color: #fff;
+  background-color: transparent;
   color: black;
   margin-left: 10px;
   margin-bottom: -20px;
@@ -826,3 +826,4 @@ form .hover button:hover{
   color: greenyellow;
   font-size: 90px;
 }
+

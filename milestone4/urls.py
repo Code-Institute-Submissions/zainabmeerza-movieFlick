@@ -17,10 +17,12 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from userauth.views import UserProfile
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('movie/', include('movie.urls')),
     path('actors/', include('actor.urls')),
     path('account/', include('userauth.urls')),
+    path('<username>/', UserProfile, name='profile')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
