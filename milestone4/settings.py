@@ -28,7 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-CSRF_TRUSTED_ORIGINS = ['https://8000-zainabmeerza-movieflick-v2quldwh0po.ws-eu51.gitpod.io','http://127.0.0.1:8000/']
+CSRF_TRUSTED_ORIGINS = ['https://8000-zainabmeerza-movieflick-0egr5vzp7d5.ws-eu51.gitpod.io','http://127.0.0.1:8000/']
 # Application definition
 
 INSTALLED_APPS = [

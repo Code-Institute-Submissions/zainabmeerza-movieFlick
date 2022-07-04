@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
-from movie.models import Movie, Genre, Rating
+from movie.models import Movie, Genre, Rating, Review
 from actor.models import Actor
 from django.utils.text import slugify
 from django.core.paginator import Paginator
@@ -9,6 +9,8 @@ import requests
 from userauth.models import Profile
 from django.contrib.auth.models import User
 from django.urls import reverse
+from movie.forms import RateForm
+from django.db.models import Avg
 
 # Create your views here.
 def index(request):
@@ -53,10 +55,16 @@ def movieDetails(request, imdb_id):
 
     if Movie.objects.filter(imdbID=imdb_id).exists():
         movie_data = Movie.objects.get(imdbID=imdb_id)
+        reviews = Review.objects.filter(movie=movie_data)
+        reviews_avg = reviews.aggregate(Avg('rate'))
+        reviews_count = reviews.count()
         our_db = True
 
         context = {
             'movie_data':movie_data,
+            'reviews': reviews,
+            'reviews_avg': reviews_avg,
+            'reviews_count': reviews_count,
             'our_db':our_db,
         }
 
@@ -175,6 +183,9 @@ def movieDetails(request, imdb_id):
 
         context = {
             'movie_data': movie_data,
+            'reviews': reviews,
+            'reviews_avg': reviews_avg,
+            'reviews_count': reviews_count,
             'our_db': our_db,
         }
 
@@ -224,3 +235,29 @@ def addMoviesWatched(request, imdb_id):
 		profile.watched.add(movie)
 
 	return HttpResponseRedirect(reverse('movie-details', args=[imdb_id]))
+
+
+def Rate(request, imdb_id):
+	movie = Movie.objects.get(imdbID=imdb_id)
+	user = request.user
+
+	if request.method == 'POST':
+		form = RateForm(request.POST)
+		if form.is_valid():
+			rate = form.save(commit=False)
+			rate.user = user
+			rate.movie = movie
+			rate.save()
+			return HttpResponseRedirect(reverse('movie-details', args=[imdb_id]))
+	else:
+		form = RateForm()
+
+	template = loader.get_template('rate.html')
+
+	context = {
+		'form': form, 
+		'movie': movie,
+	}
+
+	return HttpResponse(template.render(context, request))
+

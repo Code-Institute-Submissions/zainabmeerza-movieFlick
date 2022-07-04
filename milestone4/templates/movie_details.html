@@ -10,9 +10,9 @@
   
   <div class="col-sm-6 col-md-4">
     {% if our_db is True %}
-    <img src="{{ movie_data.Poster.url }}" class="card-img-top" height="600px" width="auto" alt="...">
+    <img src="{{ movie_data.Poster.url }}" class="card-img-top" width="auto" alt="...">
     {% else %}
-    <img src="{{ movie_data.Poster }}" class="card-img-top" height="600px" width="auto" alt="...">
+    <img src="{{ movie_data.Poster }}" class="card-img-top" width="auto" alt="...">
     {% endif %}
   </div>
 
@@ -129,7 +129,7 @@
   -->
 
   <div>
-    <a style="margin-left: 10px; border: solid 1px; color:white;" class="btn btn-lg hover-button"><span class="material-symbols-outlined" id="icon1">star</span>
+    <a style="margin-left: 10px; border: solid 1px; color:white;" href="{% url 'rate-movie' movie_data.imdbID %}" class="btn btn-lg hover-button"><span class="material-symbols-outlined" id="icon1">star</span>
       RATE</a>
     <a  style="margin-left: 10px; border: solid 1px; color:white;" href="{% url 'add-movies-to-watch' movie_data.imdbID %}" class="btn btn-lg hover-button"><span class="material-symbols-outlined" id="icon2">playlist_add</span>
       WATCHLIST</a>
@@ -147,32 +147,25 @@
   <div class="card-body review-card-body">
 
     <ul class="collection">
-      <hr class="line">
-      <li class="collection-item avatar">
-        <img src="{% static 'images/no_avatar.jpg' %}" alt="" class="circle">
-        <span class="title">Zainab Meerza <a href="#"><i class="material-symbols-outlined">STAR</i>10/10 amazing
-            movie</a></span>
-        <p><b>@zmeerza</b></p>
-        <p>13/06/2022</p>
-      </li>
 
-      <hr class="line">
-      <li class="collection-item avatar">
-        <img src="{% static 'images/no_avatar.jpg' %}" alt="" class="circle">
-        <span class="title">Zainab Meerza 2<a href="#"><i class="material-symbols-outlined">STAR</i>4/10 okayish
-            movie</a></span>
-        <p><b>@zmeerza2</b></p>
-        <p>13/06/2022</p>
-      </li>
+      {% for review in reviews %}
+        <hr class="line">
+        <li class="collection-item avatar">
 
-      <hr class="line">
-      <li class="collection-item avatar">
-        <img src="{% static 'images/no_avatar.jpg' %}" alt="" class="circle">
-        <span class="title">Zainab Meerza 3 <a href="#"><i class="material-symbols-outlined">STAR</i>1/10 boring
-            movie</a></span>
-        <p><b>@zmeerza3</b></p>
-        <p>13/06/2022</p>
-      </li>
+          {% if review.user.profile.picture %}
+            <img src="{{ review.user.profile.picture.url }}" alt="" class="circle">
+          {% else %}
+            <img src="{% static 'images/no_avatar.jpg' %}" alt="" class="circle">
+          {% endif %}
+
+          <span class="title">{{ review.user.first_name }} {{ review.user.last_name }} <a href="#"><i class="material-symbols-outlined">STAR</i> {{ review.rate }}
+              / 10</a></span>
+          <p><b>@{{ review.user.username }}</b></p>
+          <p>{{ review.date }}</p>
+        </li>
+      {% endfor %}
+
+
     </ul>
 
   </div>

@@ -4,9 +4,10 @@ from django.utils.text import slugify
 from io import BytesIO
 from django.core import files
 import requests
-from django.urls import reverse 
-
+from django.urls import reverse
+from django.contrib.auth.models import User
 # Create your models here.
+
 
 class Genre(models.Model):
     title = models.CharField(max_length=25)
@@ -24,12 +25,14 @@ class Genre(models.Model):
             self.slug = slugify(self.title)
         return super().save(*args, **kwargs)
 
+
 class Rating(models.Model):
     source = models.CharField(max_length=50)
     rating = models.CharField(max_length=10)
 
     def __str__(self):
         return self.source
+
 
 class Movie(models.Model):
     Title = models.CharField(max_length=200)
@@ -63,12 +66,47 @@ class Movie(models.Model):
         return self.Title
 
     def save(self, *args, **kwargs):
-        if self.Poster == '' and self.Poster_url !='':
+        if self.Poster == '' and self.Poster_url != '':
             resp = requests.get(self.Poster_url)
             pb = BytesIO()
             pb.write(resp.content)
             pb.flush()
             file_name = self.Poster_url.split("/")[-1]
             self.Poster.save(file_name, files.File(pb), save=False)
-        
+
         return super().save(*args, **kwargs)
+
+
+RATING_CHOICES = [
+    (1, '1/10- Waste of Time'),
+    (2, '2/20 - Horrible'),
+    (3, '3/10 - Terrible'),
+    (4, '4/10 - Bad'),
+    (5, '5/10 - OK'),
+    (6, '6/10 - Not bad'),
+    (7, '7/10 - Good'),
+    (8, '8/10 - Very Good'),
+    (9, '9/10 - Excellent'),
+    (10, '10/10 - Masterpiece'),
+]
+
+
+class Review(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
+    date = models.DateTimeField(auto_now_add=True)
+    text = models.TextField(max_length=3000, blank=True)
+    rate = models.PositiveSmallIntegerField(choices=RATING_CHOICES)
+    likes = models.PositiveIntegerField(default=0)
+    unlikes = models.PositiveIntegerField(default=0)
+
+    def __str__(self):
+        return self.user.username
+
+
+class Likes(models.Model):
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='user_like')
+    type_like = models.PositiveSmallIntegerField()
+    review = models.ForeignKey(
+        Review, on_delete=models.CASCADE, related_name='review_like')
