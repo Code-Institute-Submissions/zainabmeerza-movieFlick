@@ -92,8 +92,133 @@ def UserProfile(request, username):
     user = get_object_or_404(User, username=username)
     profile = Profile.objects.get(user=user)
 
+    mWatched_count = profile.watched.filter(Type='movie').count()
+    sWatched_count = profile.watched.filter(Type='series').count()
+    watch_list_count = profile.to_watch.all().count()
+    m_reviewd_count = Review.objects.filter(user=user).count()
+
     context = {
         'profile': profile,
+        'mWatched_count': mWatched_count,
+        'sWatched_count': sWatched_count,
+        'watch_list_count': watch_list_count,
+        'm_reviewd_count': m_reviewd_count,
+    }
+
+    template = loader.get_template('profile.html')
+
+    return HttpResponse(template.render(context, request))
+
+
+def UserProfileMoviesWatched(request, username):
+    user = get_object_or_404(User, username=username)
+    profile = Profile.objects.get(user=user)
+
+    mWatched_count = profile.watched.filter(Type='movie').count()
+    sWatched_count = profile.watched.filter(Type='series').count()
+    watch_list_count = profile.to_watch.all().count()
+    m_reviewd_count = Review.objects.filter(user=user).count()
+
+    movies = profile.watched.filter(Type='movie')
+    paginator = Paginator(movies, 9)
+    page_number = request.GET.get('page')
+    movie_data = paginator.get_page(page_number)
+
+    context = {
+        'profile': profile,
+        'mWatched_count': mWatched_count,
+        'sWatched_count': sWatched_count,
+        'watch_list_count': watch_list_count,
+        'm_reviewd_count': m_reviewd_count,
+        'movie_data': movie_data,
+        'list_title': 'Movies Watched',
+    }
+
+    template = loader.get_template('profile.html')
+
+    return HttpResponse(template.render(context, request))
+
+
+def UserProfileSeriesWatched(request, username):
+    user = get_object_or_404(User, username=username)
+    profile = Profile.objects.get(user=user)
+
+    mWatched_count = profile.watched.filter(Type='movie').count()
+    sWatched_count = profile.watched.filter(Type='series').count()
+    watch_list_count = profile.to_watch.all().count()
+    m_reviewd_count = Review.objects.filter(user=user).count()
+
+    movies = profile.watched.filter(Type='series')
+    paginator = Paginator(movies, 9)
+    page_number = request.GET.get('page')
+    movie_data = paginator.get_page(page_number)
+
+    context = {
+        'profile': profile,
+        'mWatched_count': mWatched_count,
+        'sWatched_count': sWatched_count,
+        'watch_list_count': watch_list_count,
+        'm_reviewd_count': m_reviewd_count,
+        'movie_data': movie_data,
+        'list_title': 'Series Watched',
+    }
+
+    template = loader.get_template('profile.html')
+
+    return HttpResponse(template.render(context, request))
+
+
+def UserProfileWatchList(request, username):
+    user = get_object_or_404(User, username=username)
+    profile = Profile.objects.get(user=user)
+
+    mWatched_count = profile.watched.filter(Type='movie').count()
+    sWatched_count = profile.watched.filter(Type='series').count()
+    watch_list_count = profile.to_watch.all().count()
+    m_reviewd_count = Review.objects.filter(user=user).count()
+
+    movies = profile.to_watch.all()
+    paginator = Paginator(movies, 9)
+    page_number = request.GET.get('page')
+    movie_data = paginator.get_page(page_number)
+
+    context = {
+        'profile': profile,
+        'mWatched_count': mWatched_count,
+        'sWatched_count': sWatched_count,
+        'watch_list_count': watch_list_count,
+        'm_reviewd_count': m_reviewd_count,
+        'movie_data': movie_data,
+        'list_title': 'Watch list',
+    }
+
+    template = loader.get_template('profile.html')
+
+    return HttpResponse(template.render(context, request))
+
+
+def UserProfileMoviesReviewed(request, username):
+    user = get_object_or_404(User, username=username)
+    profile = Profile.objects.get(user=user)
+
+    mWatched_count = profile.watched.filter(Type='movie').count()
+    sWatched_count = profile.watched.filter(Type='series').count()
+    watch_list_count = profile.to_watch.all().count()
+    m_reviewd_count = Review.objects.filter(user=user).count()
+
+    movies = Review.objects.filter(user=user)
+    paginator = Paginator(movies, 9)
+    page_number = request.GET.get('page')
+    movie_data = paginator.get_page(page_number)
+
+    context = {
+        'profile': profile,
+        'mWatched_count': mWatched_count,
+        'sWatched_count': sWatched_count,
+        'watch_list_count': watch_list_count,
+        'm_reviewd_count': m_reviewd_count,
+        'movie_data': movie_data,
+        'list_title': 'Reviewed',
     }
 
     template = loader.get_template('profile.html')

@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from userauth.views import UserProfile, ReviewDetail, like, unlike
+from userauth.views import UserProfile, ReviewDetail, like, unlike, UserProfileMoviesWatched, UserProfileSeriesWatched, UserProfileWatchList, UserProfileMoviesReviewed
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,6 +25,10 @@ urlpatterns = [
     path('actors/', include('actor.urls')),
     path('account/', include('userauth.urls')),
     path('<username>/', UserProfile, name='profile'),
+    path('<username>/movieswatched', UserProfileMoviesWatched, name='profile-movies-watched'),
+    path('<username>/serieswatched',  UserProfileSeriesWatched, name='profile-series-watched'),
+    path('<username>/watchlist',  UserProfileWatchList, name='profile-watch-list'),
+    path('<username>/reviewed',  UserProfileMoviesReviewed, name='profile-reviewed-list'),
     path('<username>/review/<imdb_id>', ReviewDetail, name='user-review'),
     path('<username>/review/<imdb_id>/like', like, name='user-review-like'),
     path('<username>/review/<imdb_id>/unlike', unlike, name='user-review-unlike'),

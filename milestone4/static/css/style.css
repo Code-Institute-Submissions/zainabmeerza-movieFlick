@@ -669,7 +669,7 @@ i .material-symbols-outlined {
   border-width: 5px;
   z-index: 1;
   left: 40%;
-  top: 22%;
+  top: 20%;
 }
 
 
@@ -738,7 +738,7 @@ i .material-symbols-outlined {
   background-color: transparent;
   color: black;
   margin-left: 10px;
-  margin-bottom: -20px;
+
 }
 
 .user-stats{
