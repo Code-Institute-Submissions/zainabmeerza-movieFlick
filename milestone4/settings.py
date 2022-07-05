@@ -22,14 +22,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-fmu-i&h9m7z*e$!6@ur9%f+tja5oxfscbpc)teg+v+p-i4_u7('
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-fmu-i&h9m7z*e$!6@ur9%f+tja5oxfscbpc)teg+v+p-i4_u7(')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-ALLOWED_HOSTS = ['movieflick-django-review-app.herokuapp.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = [os.environ.get('HEROKU_HOSTNAME'), 'localhost', '127.0.0.1']
 
 CSRF_TRUSTED_ORIGINS = ['https://8000-zainabmeerza-movieflick-0egr5vzp7d5.ws-eu51.gitpod.io','http://127.0.0.1:8000/']
 # Application definition
@@ -89,7 +89,7 @@ WSGI_APPLICATION = 'milestone4.wsgi.application'
 # }
 
 DATABASES = {
-    'default': dj_database_url.parse('postgres://trfhfeqihhnium:68be82bb9ecda04e0b3b03c127b29d3f29af90406d67c848fd1f58611dc17585@ec2-44-205-41-76.compute-1.amazonaws.com:5432/d2mgh9qauf9snm')
+    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
 }
 
 
