@@ -70,9 +70,9 @@
               </p>
               <div class="card thumbs">
                 <div class="card-body">
-                  <a href="#" class="card-link"><i class="material-symbols-outlined" id="rate_icon">thumb_up</i> 100</a>
-                  <a href="#" class="card-link"><i class="material-symbols-outlined" id="rate_icon">thumb_down</i>
-                    20</a>
+                  <a href="{% url 'user-review-like' review.user.username movie.imdbID %}" class="card-link"><i class="material-symbols-outlined" id="rate_icon">thumb_up</i> {{ review.likes }}</a>
+                  <a href="{% url 'user-review-unlike' review.user.username movie.imdbID %}" class="card-link"><i class="material-symbols-outlined" id="rate_icon">thumb_down</i>
+                    {{ review.unlikes }}</a>
                 </div>
               </div>
               <hr class="line">
@@ -90,53 +90,33 @@
         <div class="card-body review-card-body">
 
           <ul class="collection">
+
+          {% for comment in comments %}
             <hr class="line">
             <li class="collection-item avatar">
-              <img src="static/images/no_avatar.jpg" alt="" class="circle">
-              <span class="title">Zainab Meerza <a href="#"><i
-                    class="material-symbols-outlined trash">delete</i></a></span>
-              <p><b>@zmeerza</b></p>
-              <p>13 June 2022</p>
-              <br>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                mollit
-                anim id est laborum.</p>
-            </li>
 
-            <hr class="line">
-            <li class="collection-item avatar">
-              <img src="static/images/no_avatar.jpg" alt="" class="circle">
-              <span class="title">Zainab Meerza 2<a href="#"><i
-                    class="material-symbols-outlined trash">delete</i></a></span>
-              <p><b>@zmeerza2</b></p>
-              <p>13 June 2022</p>
-              <br>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                mollit
-                anim id est laborum.</p>
-            </li>
+              {% if comment.user.profile.picture %} 
+                <img src="{{ comment.user.profile.picture.url }}" alt="user profile picture"  class="circle img-responsive">
+              {% else %}
+                <img src="{% static 'images/no_avatar.jpg' %}" alt="no profile picture"  class="circle img-responsive">
+               {% endif %}
 
-            <hr class="line">
-            <li class="collection-item avatar">
-              <img src="static/images/no_avatar.jpg" alt="" class="circle">
-              <span class="title">Zainab Meerza 3 <a href="#"><i
+              <span class="title">{{ comment.user.first_name }} {{ comment.user.last_name }}<a href="#"><i
                     class="material-symbols-outlined trash">delete</i></a></span>
-              <p><b>@zmeerza3</b></p>
-              <p>13 June 2022</p>
+              <p><b>@{{ comment.user.username }}</b></p>
+              <p>{{ comment.date }}</p>
               <br>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                mollit
-                anim id est laborum.</p>
+              <p>{{ comment.body }}</p>
             </li>
-
+          {% endfor %}
+            
             <br></br>
             <div>
-              <form class="col s12 comment-box">
-                <textarea placeholder="Leave a comment." class="materialize-textarea white-text"></textarea>
-
+              <form method="post" action="" role="form" class="col s12 comment-box">
+                {% csrf_token %}
+                <label for="textarea1">LEAVE A COMMENT</label><br>
+                {{ form.body }}
+                <br>
                 <button type="submit" name="action" class="submit btn btn-lg">POST</button>
 
                 <hr class="line">
@@ -152,5 +132,4 @@
     </div>
   </div>
 
-
-  {% endblock %}
+{% endblock %}

@@ -110,3 +110,4 @@ class Likes(models.Model):
     type_like = models.PositiveSmallIntegerField()
     review = models.ForeignKey(
         Review, on_delete=models.CASCADE, related_name='review_like')
+

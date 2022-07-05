@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from userauth.views import UserProfile, ReviewDetail
+from userauth.views import UserProfile, ReviewDetail, like, unlike
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,5 +26,7 @@ urlpatterns = [
     path('account/', include('userauth.urls')),
     path('<username>/', UserProfile, name='profile'),
     path('<username>/review/<imdb_id>', ReviewDetail, name='user-review'),
+    path('<username>/review/<imdb_id>/like', like, name='user-review-like'),
+    path('<username>/review/<imdb_id>/unlike', unlike, name='user-review-unlike'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

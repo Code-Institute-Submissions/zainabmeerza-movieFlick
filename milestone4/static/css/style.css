@@ -795,7 +795,7 @@ i .material-symbols-outlined {
   color: black;
 }
 
-#id_text{
+#id_text, #id_body{
   background-color: white;
   border-radius: 5px;
   width: 100%;
