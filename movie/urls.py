@@ -2,7 +2,7 @@ from django.urls import path
 from movie.views import index, pagination, movieDetails, genres, addMoviesToWatch, addMoviesWatched, Rate
 
 urlpatterns = [
-    path('', index, name='index'),
+    path('index/', index, name='index'),
     path('search/<query>/page/<page_number>', pagination, name='pagination'),
     path('<imdb_id>', movieDetails, name='movie-details'),
     path('<imdb_id>/addtomoviewatch', addMoviesToWatch, name='add-movies-to-watch'),
