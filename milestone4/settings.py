@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,9 +25,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-fmu-i&h9m7z*e$!6@ur9%f+tja5oxfscbpc)teg+v+p-i4_u7('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
+ALLOWED_HOSTS = ['localhost']
 
 CSRF_TRUSTED_ORIGINS = ['https://8000-zainabmeerza-movieflick-0egr5vzp7d5.ws-eu51.gitpod.io','http://127.0.0.1:8000/']
 # Application definition
@@ -78,11 +81,15 @@ WSGI_APPLICATION = 'milestone4.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.parse('postgres://trfhfeqihhnium:68be82bb9ecda04e0b3b03c127b29d3f29af90406d67c848fd1f58611dc17585@ec2-44-205-41-76.compute-1.amazonaws.com:5432/d2mgh9qauf9snm')
 }
 
 
