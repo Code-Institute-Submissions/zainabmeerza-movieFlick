@@ -845,3 +845,21 @@ form .hover button:hover{
   color: black;
   background-color: white;
 }
+
+#logout, #login, #profile, #signup {
+  margin-left: 10px; 
+  border: solid 1px; 
+  color:white;
+  float: inline-end;
+}
+
+#logout:hover, #login:hover, #profile:hover, #signup:hover {
+  color:black;
+  background-color: white;
+}
+
+.nav-p{
+  margin: 0;
+  float: right;
+  padding: 40px;
+}
