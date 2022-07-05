@@ -18,8 +18,12 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from userauth.views import UserProfile, ReviewDetail, like, unlike, UserProfileMoviesWatched, UserProfileSeriesWatched, UserProfileWatchList, UserProfileMoviesReviewed
+from movie import views
+
+app_name = 'movie'
 
 urlpatterns = [
+    path('', views.index, name='index'),
     path('admin/', admin.site.urls),
     path('movie/', include('movie.urls')),
     path('actors/', include('actor.urls')),
