@@ -31,7 +31,7 @@ X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 ALLOWED_HOSTS = ['localhost']
 
-CSRF_TRUSTED_ORIGINS = ['https://8000-zainabmeerza-movieflick-0egr5vzp7d5.ws-eu51.gitpod.io','http://127.0.0.1:8000/']
+CSRF_TRUSTED_ORIGINS = []
 # Application definition
 
 INSTALLED_APPS = [
